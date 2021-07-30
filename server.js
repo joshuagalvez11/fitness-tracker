@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/workout", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
@@ -48,7 +48,7 @@ app.get("/api/workouts/range", function(req, res) {
 
 app.put("/api/workouts/:id", (req, res) => {
     
-      db.Workout.findOneAndUpdate(req.params.id, { $push: { exercises: req.body } }, { new: true })
+      db.Workout.findByIdAndUpdate(req.params.id, { $push: { exercises: req.body } }, { new: true })
       .then(dbWorkout => {
         res.json(dbWorkout);
       })
