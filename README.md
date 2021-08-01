@@ -15,7 +15,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Questions](#questions)
 
 ## Installation
-deployed link: 
+deployed link: https://safe-brook-08237.herokuapp.com/
 
 ## Usage
 Use to save fitness information and get workout summaries   
